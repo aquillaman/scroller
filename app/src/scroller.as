@@ -1,5 +1,7 @@
 package
 {
+    import base.Application;
+    
     import controls.BaseControll;
     import controls.LableButton;
     import controls.Scroller;
@@ -16,28 +18,11 @@ package
     
     public class scroller extends Sprite
     {
-        private var _scroller:Scroller;
-        private var textInput:TextField;
-        
+        private var app:Application;
         public function scroller()
         {
-            var buildBtn:LableButton;
-            
-            stage.addChild( (_scroller = new Scroller(400, 400)).container );
-            stage.addChild( textInput = BaseControll.createTextField( new Rectangle(150,452, 50, 20)) );
-            
-            stage.addChild( (buildBtn = LableButton.createLableButton(new Point(210,450), "Построить")).resource );
-            
-            buildBtn.registerCustomClickHandler(buildScroller);
-        }
-        
-        private function buildScroller(event:MouseEvent):void{
-            var itemsCount:int = parseInt( textInput.text );
-            _scroller.clear();
-            for (var i:int = 0; i < itemsCount; i++) {
-                _scroller.add( Helper.getShape(150, 150, 0) );
-            }
-            
+            app = new Application()
+            stage.addChild( app );
         }
     }
 }

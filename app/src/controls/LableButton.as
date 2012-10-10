@@ -19,21 +19,9 @@ package controls
             super(resource);
         }
         
-        private var customClicHandler:Function;
-        
-        public function registerCustomClickHandler(func:Function):void {
-            customClicHandler = func;
-        }
-        
-        protected override function clickHandler(event:MouseEvent):void{
-            if(customClicHandler){
-                customClicHandler(event);
-            }
-        }
-        
         public static function createLableButton(postion:Point, lable:String):LableButton {
             var stroke:int = 2;
-            var btn:SimpleButton = new SimpleButton(createState(lable,GREY),createState(lable,WHITE),createState(lable,DARK),createState(lable));
+            var btn:SimpleButton = new SimpleButton(createState(lable,Helper.GREY),createState(lable,Helper.WHITE),createState(lable,Helper.DARK),createState(lable));
             btn.x = postion.x;
             btn.y = postion.y;
             
