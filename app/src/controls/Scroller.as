@@ -137,9 +137,9 @@ class VSlider extends Sprite{
     
     private function onSliderTrackClick(event:MouseEvent):void {
         if(event.localY < _slider.resource.y)
-            moveSliderAndContentTo( ((target.y+SLIDER_CLICK_OFFSET)/offsetCoeff)+WIDTH );
+            moveSliderAndContentTo( _slider.resource.y-SLIDER_CLICK_OFFSET );
         else
-            moveSliderAndContentTo( ((target.y-SLIDER_CLICK_OFFSET)/offsetCoeff)+WIDTH );
+            moveSliderAndContentTo( _slider.resource.y+SLIDER_CLICK_OFFSET );
     }
     private function onBtnUpClick(event:MouseEvent):void {
         moveSliderAndContentTo(_slider.resource.y - BTN_CLICK_OFFSET);
